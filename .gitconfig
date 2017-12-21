@@ -1,0 +1,21 @@
+[core]
+	excludesfile = /Users/Artem/.gitignore_global
+	editor = vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[alias]
+	gr = log --all --graph --pretty=format:'%C(auto)%h%C(auto)%d %s %C(dim white)(%aN, %ar)'
+
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Artem Artemev
+	email = art.art.v@gmail.com
+[commit]
+	template = /Users/Artem/.stCommitMsg
+
+[alias]
+	tagcommit = rev-list -n 1

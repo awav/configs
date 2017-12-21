@@ -1,0 +1,12 @@
+#!/bin/bash
+
+MSG_FILE=$1
+
+# Infer our branch and an ID.
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [[ $BRANCH =~ ^(feature|hotfix)/((gs|GS)-[0-9]+) ]]; then
+  TICKET_ID=$(echo ${BASH_REMATCH[2]} | awk '{print toupper($0)}')
+  echo "[${TICKET_ID}] $(cat ${MSG_FILE})" > "${MSG_FILE}"
+fi

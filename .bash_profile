@@ -3,6 +3,10 @@
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOPATH=$(go env GOPATH)
 
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;91m\]$(parse_git_branch)\[\033[00m\]\n\[\033[01;32m\]→ \[\033[00m\]'
 PS1_ANACONDA_ROOT='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\[\033[01;32m\](conda)\$ \[\033[00m\]'
 
